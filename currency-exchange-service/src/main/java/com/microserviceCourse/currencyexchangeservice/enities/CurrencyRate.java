@@ -1,10 +1,17 @@
 package com.microserviceCourse.currencyexchangeservice.enities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class CurrencyRate {
 
+    @Id
     private int id;
+    @Column (name = "currency_from")
     private String from;
+    @Column (name = "currency_to")
     private String to;
     private double conversionMultiple;
     private String environment;
