@@ -2,16 +2,20 @@ package com.microserviceCourse.currencyexchangeservice.enities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+
+import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
 public class CurrencyRate {
 
     @Id
+    @GeneratedValue(strategy = SEQUENCE, generator = "CUST_SEQ")
     private int id;
-    @Column (name = "currency_from")
+    @Column(name = "currency_from")
     private String from;
-    @Column (name = "currency_to")
+    @Column(name = "currency_to")
     private String to;
     private double conversionMultiple;
     private String environment;
