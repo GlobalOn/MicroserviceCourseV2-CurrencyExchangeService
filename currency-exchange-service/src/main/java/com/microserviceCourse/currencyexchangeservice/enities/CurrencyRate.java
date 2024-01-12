@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.math.BigDecimal;
+
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -17,19 +19,20 @@ public class CurrencyRate {
     private String from;
     @Column(name = "currency_to")
     private String to;
-    private double conversionMultiple;
+    private BigDecimal conversionMultiple;
     private String environment;
 
     public CurrencyRate() {
     }
 
-    public CurrencyRate(int id, String from, String to, double conversionMultiple, String environment) {
+    public CurrencyRate(int id, String from, String to, BigDecimal conversionMultiple, String environment) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.conversionMultiple = conversionMultiple;
         this.environment = environment;
     }
+
 
     public int getId() {
         return id;
@@ -63,11 +66,11 @@ public class CurrencyRate {
         this.environment = environment;
     }
 
-    public double getConversionMultiple() {
+    public BigDecimal getConversionMultiple() {
         return conversionMultiple;
     }
 
-    public void setConversionMultiple(double conversionMultiple) {
+    public void setConversionMultiple(BigDecimal conversionMultiple) {
         this.conversionMultiple = conversionMultiple;
     }
 }
